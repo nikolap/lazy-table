@@ -1,5 +1,5 @@
 (defproject lazy-table "0.1.0"
-  :description "Lazily render reagent tables"
+  :description "Lazily render reagent tables and lists"
   :license {:name "The MIT License (MIT)"
             :url  "https://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.8.0"]

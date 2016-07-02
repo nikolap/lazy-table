@@ -1,13 +1,13 @@
 (ns lazy-table.core
   (:require [reagent.core :as reagent]))
 
-(defn update-val-if-greater
+(defn- update-val-if-greater
   [val-item count-item new-val dividend]
   (when (> new-val @val-item)
     (reset! val-item new-val)
     (reset! count-item (/ new-val dividend))))
 
-(defn scroll-event
+(defn- scroll-event
   [display-height display-width min-row-height min-col-width row-count col-count e]
   (let [element (.-target e)
         el-bcr (.getBoundingClientRect element)
@@ -16,7 +16,7 @@
     (update-val-if-greater display-height row-count new-height min-row-height)
     (update-val-if-greater display-width col-count new-width min-col-width)))
 
-(defn initialize-width
+(defn- initialize-width
   [display-width min-col-width col-count this]
   (let [new-width (-> this reagent/dom-node .getBoundingClientRect .-width)]
     (reset! display-width new-width)
